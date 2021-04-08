@@ -3,9 +3,9 @@
 This is a collection of useful scripts used by me to extend Acme Editor.
 
 ## c+
-Adds a comment to the beginning of the line. By default insert a double slash
-(//) but can be changed it's behaviour passing the symbol you want to use to
-comment the line. FOr example:
+Adds a comment to the beginning of the line. By default inserts a double slash
+(//) but can be changed the behaviour passing the symbol you want to use.
+For example:
 ```
 echo test line | c+
 > //test line
