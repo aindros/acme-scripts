@@ -18,6 +18,7 @@ or with a custom symbol:
 echo test line | c+ "#"
 > #test line
 ```
+On Acme tag: `|c+`
 
 ## c-
 Same as `c+.sh` but removes a comment from the beginning of the line. By
@@ -33,6 +34,7 @@ or with a custom symbol:
 echo "#test line" | c- "#"
 > test line
 ```
+On Acme tag: `|c-`
 
 ## clbuff
 Clear the buffer. Is equivalent to do:
@@ -40,3 +42,4 @@ Clear the buffer. Is equivalent to do:
 Edit ,
 ```
 and then delete the whole selection.
+On Acme tag: `clbuff`
