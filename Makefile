@@ -1,10 +1,23 @@
-all:
-	echo "Usage: make install"
+INSTALL_DIR=~/bin/acme
+BUILD_DIR=build
 
-install: uninstall
-	chmod +x *sh
-	find `pwd` -type f -name "*.sh" -exec ln -s {} ~/bin/acme/ ';'
-	find ~/bin/acme/ -type l -name "*.sh" -exec renamex -s/.sh// '{}' \;
+.SUFFIXES: .sh .o
+
+SOURCES!=ls *.sh
+OBJECTS=${SOURCES:.sh=}
+D!=echo $(OBJECTS) | sed "s|^|$(INSTALL_DIR)/|g" | sed "s| | $(INSTALL_DIR)/|g"
+
+.sh:
+	chmod +x ${.IMPSRC}
+	ln -s ${.CURDIR}/${.IMPSRC} ${.TARGET}
+
+build: $(OBJECTS)
+
+clean:
+	find ${.CURDIR} -type l -exec rm -f '{}' \;
+
+install: build
+	find ${.CURDIR} -type l -exec cp -R -P '{}' ${INSTALL_DIR}/ \;
 
 uninstall:
-	rm -f ~/bin/acme/*
+	rm -f $(D)
