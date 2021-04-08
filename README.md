@@ -33,3 +33,10 @@ or with a custom symbol:
 echo "#test line" | c- "#"
 > test line
 ```
+
+## clbuff
+Clear the buffer. Is equivalent to do:
+```
+Edit ,
+```
+and then delete the whole selection.
