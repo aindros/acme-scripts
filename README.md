@@ -2,6 +2,9 @@
 
 This is a collection of useful scripts used by me to extend Acme Editor.
 
+## start-acme
+Starts our favorite editor. ;)
+
 ## c+
 Adds a comment to the beginning of the line. By default inserts a double slash
 (//) but can be changed the behaviour passing the symbol you want to use.
