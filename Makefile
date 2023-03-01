@@ -1,23 +1,19 @@
 INSTALL_DIR=~/bin/acme
-BUILD_DIR=build
 
-.SUFFIXES: .sh .o
+SRC != ls -1 *.sh
+OBJ  = ${SRC:.sh=}
+TGT  = ${OBJ:%=${INSTALL_DIR}/%}
 
-SOURCES!=ls *.sh
-OBJECTS=${SOURCES:.sh=}
-D!=echo $(OBJECTS) | sed "s|^|$(INSTALL_DIR)/|g" | sed "s| | $(INSTALL_DIR)/|g"
+all: ${OBJ}
 
 .sh:
-	chmod +x ${.IMPSRC}
-	ln -s ${.CURDIR}/${.IMPSRC} ${.TARGET}
-
-build: $(OBJECTS)
+	ln -sf `realpath $<` $@
 
 clean:
-	find ${.CURDIR} -type l -exec rm -f '{}' \;
+	rm -f ${OBJ}
 
-install: build
-	find ${.CURDIR} -type l -exec cp -R -P '{}' ${INSTALL_DIR}/ \;
+install: ${OBJ}
+	mv ${OBJ} ${INSTALL_DIR}/
 
 uninstall:
-	rm -f $(D)
+	rm -f ${TGT}
