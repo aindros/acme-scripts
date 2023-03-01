@@ -6,4 +6,4 @@ else
 	M=$1
 fi
 
-printf '%'$M's' "|"
+printf '\n%'$M's' "|" | 9p write acme/$winid/tag
