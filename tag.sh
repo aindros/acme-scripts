@@ -2,7 +2,7 @@
 
 CMD=`echo $0 | sed 's/.*\///g'`
 
-TAG="Get $CMD"
+TAG="Get $CMD |latin"
 
 # Clear the tag before adding the new one
 echo cleartag | 9p write acme/$winid/ctl
