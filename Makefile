@@ -7,7 +7,8 @@ TGT  = ${OBJ:%=${INSTALL_DIR}/%}
 all: ${OBJ}
 
 .sh:
-	ln -sf `realpath $<` $@
+#	ln -sf `realpath $<` $@
+	@cp $< $@
 
 clean:
 	rm -f ${OBJ}
