@@ -13,8 +13,11 @@ all: ${OBJ}
 clean:
 	rm -f ${OBJ}
 
-install: ${OBJ}
+install: ${OBJ} ${INSTALL_DIR}
 	mv ${OBJ} ${INSTALL_DIR}/
 
 uninstall:
 	rm -f ${TGT}
+
+${INSTALL_DIR}:
+	@mkdir -p $@
